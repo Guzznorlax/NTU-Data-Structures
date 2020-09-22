@@ -47,33 +47,34 @@ your class should include functions for setting the value of each type, and gett
 the value of each type. Here is the specification of this class:
 
 ```c++
-class flower {
+class flower
+{
 private:
-string name;
-int petal;
-double price;
+	string name;
+	int petal;
+	double price;
 
 public:
-// Constructor.
-flower (string n, int pt, double pr);
+	// Constructor.
+	flower(string n, int pt, double pr);
 
-// Set the name of the flower.
-void setName (string n);
+	// Set the name of the flower.
+	void setName(string n);
 
-// Set the petal number of the flower.
-void setPetal (int pt);
+	// Set the petal number of the flower.
+	void setPetal(int pt);
 
-// Set the price of the flower.
-void setPrice (double pr);
+	// Set the price of the flower.
+	void setPrice(double pr);
 
-// Return the name of the flower.
-string getName ();
+	// Return the name of the flower.
+	string getName();
 
-// Return the petal number of the flower.
-int getPetal ();
+	// Return the petal number of the flower.
+	int getPetal();
 
-// Return the price of the flower.
-double getPrice ();
+	// Return the price of the flower.
+	double getPrice();
 };
 ```
 

@@ -1,6 +1,6 @@
 # NTU-Data-Structures
 
-##### Table of Contents
+### Table of Contents
 **[Assignment_1](#hw_1)**<br>
 **[Assignment_2](#hw_2)**<br>
 

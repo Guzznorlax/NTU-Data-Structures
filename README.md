@@ -1,8 +1,8 @@
 # NTU-Data-Structures
 
 ### Table of Contents
-**[Assignment_1](#hw_1)**<br>
-**[Assignment_2](#hw_2)**<br>
+**[Assignment 1](#hw_1)**<br>
+**[Assignment 2](#hw_2)**<br>
 
 
 ## HW 1  <a name="hw_1"/>

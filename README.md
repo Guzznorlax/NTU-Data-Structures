@@ -12,9 +12,9 @@ specified) WITHOUT the function `main()`. All testing files that have the functi
 
 ### CA1Prob1
 
-1. (Save as `CA1Prob1.cpp`.) Write a short C++ program that takes two arrays a
-and b of length n storing `integer` values, and returns the dot product of a and b.
-That is, it computes an array c of length n such that `c[i] = a[i]·b[i]`, for `i = 0, …, n-1` and returns a scalar representing the dot product. The specification of the
+1. (Save as `CA1Prob1.cpp`.) Write a short C++ program that takes two arrays `a`
+and `b` of length `n` storing `integer` values, and returns the dot product of a and b.
+That is, it computes an array `c` of length `n` such that `c[i] = a[i]·b[i]`, for `i = 0, …, n-1` and returns a scalar representing the dot product. The specification of the
 function is as follows: `int dotProduct (int a[], int b[], int n);`
 Please consider any possible inputs that causes errors and try to survive them.
 A simple test with `a = [-1 0 2 15 7 6 -4 8 21 -13]` and `b = [5 9 -18 16 0 1 -4 18 -2 12]`
@@ -24,15 +24,15 @@ can be used to test your program initially. (20%)
 ### CA1Prob2
 
 2. (Save as `CA1Prob2.cpp`.) Write a C++ function which takes a single integer
-parameter p, and (a) outputs "p" if and only if the integer is a prime OR (b)
-outputs its nearest prime numbers both smaller and larger than p: "ps and pl",
-where ps and pl are p’s nearest primes smaller and larger than p, respectively.
+parameter `p`, and (a) outputs `p` if and only if the integer is a prime OR (b)
+outputs its nearest prime numbers both smaller and larger than `p`: "`ps` and `pl`",
+where `ps` and `pl` are `p`’s nearest primes smaller and larger than `p`, respectively.
 To simplify the grading process, please follow exactly the specification as:
-int* showPrime (int p);
-In the returned integer array, set the array length equal to two. If p is actually a
-prime, return it in the first element and set the second element 0. If p is not a
-prime, return `[ps pl]` in the array. You may test your program with 5869, 3053
-and 104395302. (20%)
+`int* showPrime (int p);`
+In the returned integer array, set the array length equal to two. If `p` is actually a
+prime, return it in the first element and set the second element `0`. If `p` is not a
+prime, return `[ps pl]` in the array. You may test your program with `5869`, `3053`
+and `104395302`. (20%)
 
 
 ### CA1Prob3
@@ -144,7 +144,7 @@ public:
 
 ## HW 2  <a name="hw_2"/>
 
-This computer homework assignment is designed to help you to learn about building C++ classes and to observe the decomposition of a complicated task into simple subtasks. You have learned how to write some functions in CA1. Now, your task is to fill in the implementation of a class that manipulates dates, which is defined in a header file called “Date.h”. DO NOT use any of the built-in operations on dates provided in any C++ library in your solution. Fill in the private variables in “Date.h” and write your functional answers in a separate file called “Date.cpp”. The overall task is broken down into subtasks as stated as follows:
+This computer homework assignment is designed to help you to learn about building C++ classes and to observe the decomposition of a complicated task into simple subtasks. You have learned how to write some functions in `CA1`. Now, your task is to fill in the implementation of a class that manipulates dates, which is defined in a header file called `Date.h`. DO NOT use any of the built-in operations on dates provided in any C++ library in your solution. Fill in the private variables in `Date.h` and write your functional answers in a separate file called `Date.cpp`. The overall task is broken down into subtasks as stated as follows:
 
 1. Implement the basic helper methods listed below.
 
@@ -251,7 +251,7 @@ public Date(const string& s) { ...
 ```
 
 Your Date constructor definitely should not accept `11/31/2005` or `12/4` or `hey Jude`.
-Hint: use the STL to familiarize yourself with all the methods available to you in the string class.
+Hint: use the STL to familiarize yourself with all the methods available to you in the `string` class.
 
 
 The files `Date.h` and `Date.cpp` contain a skeleton and `TestDate.cpp` provides some test code, for a `Date` class, respectively. We have included a `main` method in the `TestDate.cpp` that tests some of your methods. You are welcome to modify the main method as you please, perhaps to add further tests of your own. We will not grade the `main` method in this assignment. DO NOT change the prototype (interface) of any method. However, you may want to add some utilities to some functions to facilitate the coding.

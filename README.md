@@ -97,39 +97,40 @@ perimeter and area subsequently. The specification of this class is described in
 the following: (20%)
 
 ```c++
-class rectangle {
+class rectangle
+{
 private:
-double width;
-double length;
-double perimeter;
-double area;
+	double width;
+	double length;
+	double perimeter;
+	double area;
 
 public:
-// Constructor, automatically compute the perimeter and area once it is OK.
-rectangle (double wd, double lg);
+	// Constructor, automatically compute the perimeter and area once it is OK.
+	rectangle(double wd, double lg);
 
-// Set the dimension and automatically update the perimeter and area.
-void setDimension (double wd, double lg);
+	// Set the dimension and automatically update the perimeter and area.
+	void setDimension(double wd, double lg);
 
-// Set the width and automatically update the perimeter and area.
-void setWidth (double wd);
+	// Set the width and automatically update the perimeter and area.
+	void setWidth(double wd);
 
-// Set the length and automatically update the perimeter and area.
-void setLength (double lg);
+	// Set the length and automatically update the perimeter and area.
+	void setLength(double lg);
 
-// Return the width of the rectangle.
-double getWidth ();
+	// Return the width of the rectangle.
+	double getWidth();
 
-// Return the length of the rectangle.
-double getLength ();
+	// Return the length of the rectangle.
+	double getLength();
 
-// Return the perimeter of the rectangle.
-double getPerimeter ();
+	// Return the perimeter of the rectangle.
+	double getPerimeter();
 
-// Return the area of the rectangle.
-double getArea ();
+	// Return the area of the rectangle.
+	double getArea();
 
-// True, if width = length.
-bool isSquare ();
+	// True, if width = length.
+	bool isSquare();
 };
 ```

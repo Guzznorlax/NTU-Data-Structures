@@ -1,7 +1,6 @@
 # NTU-Data-Structures
 
 ## HW 1
-------
 
 ### CA1Prob1
 

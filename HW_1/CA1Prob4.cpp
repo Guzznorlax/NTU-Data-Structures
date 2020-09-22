@@ -79,7 +79,7 @@ double flower::getPrice()
 	return price;
 }
 
-int main()
+/* int main()
 {
 	flower a = flower("Initial Flower Name", 0, 0);
 
@@ -92,4 +92,4 @@ int main()
 	cout << "price: " << a.getPrice() << "\n";
 
 	return 0;
-}
+} */

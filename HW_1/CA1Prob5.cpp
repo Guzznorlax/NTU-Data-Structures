@@ -106,7 +106,7 @@ bool rectangle::isSquare()
 	return false;
 }
 
-int main()
+/* int main()
 {
 	rectangle a = rectangle(0, 0);
 
@@ -134,4 +134,4 @@ int main()
 	cout << "isSquare: " << a.isSquare() << "\n";
 
 	return 0;
-}
+} */

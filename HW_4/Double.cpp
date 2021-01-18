@@ -3,14 +3,15 @@
  *
  **/
 
-#include<math.h>
-#include"Double.h"
+#include <math.h>
+#include "Double.h"
 
- /**
+/**
   *  Construct a new Double with the given variable.
   *  @param d the double variable by which the Double stores.
   */
-Double::Double(const double& d) {
+Double::Double(const double &d)
+{
 	this->d = d;
 }
 
@@ -18,7 +19,8 @@ Double::Double(const double& d) {
  *  Get the value of the double variable.
  *  @return the stored value.
  */
-double Double::getvalue() const {
+double Double::getvalue() const
+{
 	return d;
 }
 
@@ -27,7 +29,8 @@ double Double::getvalue() const {
  *  @param db is the second Double.
  *  @return true if the double values are equal, false otherwise.
  */
-bool Double::equals(const Double& db) {
+bool Double::equals(const Double &db)
+{
 	if (d == db.d)
 	{
 		return true;
@@ -35,7 +38,6 @@ bool Double::equals(const Double& db) {
 	else
 	{
 		return false;
-
 	}
 }
 
@@ -43,9 +45,10 @@ bool Double::equals(const Double& db) {
  *  Returns a hash code for this Double.
  *  @return a number between Integer.MIN_VALUE and Integer.MAX_VALUE.
  */
-int Double::hashCode() {
+int Double::hashCode()
+{
 	int value, temp;
-	temp = (int)(d * 10001);
-	value = abs(65597 - temp) % 327;      //hashcode
+	temp = (int)(d * 1);
+	value = abs(65597 - temp) % 101; //hashcode
 	return value;
 }

@@ -54,9 +54,9 @@ int main()
 	Integer *b = new Integer(10);
 	cout << endl
 		 << endl
-		 << "insert,remov,find test :" << endl;
+		 << "insert,remove,find test :" << endl;
 	table1->insert(hi, b);											 //insert the string "hi" into the table
-	cout << "find? " << table1->find(hi) << " : shoud be 1" << endl; //find if the insert succeed
+	cout << "find? " << table1->find(hi) << " : should be 1" << endl; //find if the insert succeed
 	table1->makeEmpty();											 //empty the table
 	cout << "is it empty? " << table1->isEmpty() << " : should be 1" << endl
 		 << endl;	 //cout if the table is empty now

@@ -13,19 +13,25 @@
 
 #ifndef HASHTABLECHAINED_H
 #define HASHTABLECHAINED_H
-#include<iostream>
-#include<list>
+#include <iostream>
+#include <list>
 #include "Dictionary.h"
 using namespace std;
 
-template<typename K, typename V>
-class HashTableChained : public Dictionary<K, V> {
+template <typename K, typename V>
+class HashTableChained : public Dictionary<K, V>
+{
 private:
 	int bucket;
 	int entries;
-	list<Entry<K, V>* >* defTable;
+	list<Entry<K, V> *> *defTable;
+
 public:
-    
+	/**
+	 *  Finds prime number.
+	 **/
+	int findprime(int n);
+
 	/**
 	 *  Construct a new empty hash table intended to hold roughly sizeEstimate
 	 *  entries.  (The precise number of buckets is up to you, but we recommend
@@ -72,7 +78,7 @@ public:
 	 *  @param key the key by which the entry can be retrieved.
 	 *  @param value an arbitrary object.
 	 **/
-	virtual void insert(const K& key, const V& value);
+	virtual void insert(const K &key, const V &value);
 
 	/**
 	 *  Search for an entry with the specified key.  If such an entry is found,
@@ -84,7 +90,7 @@ public:
 	 *  @return true if an entry containing the key is found, or false if
 	 *          no entry contains the specified key.
 	 **/
-	virtual bool find(const K& key);
+	virtual bool find(const K &key);
 
 	/**
 	 *  Remove an entry with the specified key.  If such an entry is found,
@@ -96,49 +102,19 @@ public:
 	 *
 	 *  @param key the search key.
 	 */
-	virtual void remove(const K&  key);
+	virtual void remove(const K &key);
 
 	/**
 	 *  Remove all entries from the dictionary.
 	 */
 	virtual void makeEmpty();
 
-
-
 	virtual void print();
+
 	/** cout the table to see the collision.*/
+	int collision();
 
-	int findprime(int n)      //新建置一個class判斷是否為prime
-	{
-		while (true)
-		{
-			int a;
-			for (a = 2; a < n; a++)
-			{
 
-				if (n%a == 0)
-				{
-					break;
-				}
-			}
-			if (a == n)
-			{
-				break;
-			}
-			else
-			{
-				n++;
-			}
-			return n;
-		}
-	}
-	int collision() {           
-		cout << endl << "entries in each bucket : " << endl << endl;
-		for (int i = 0; i < bucket; i++)
-		{
-			cout << "bucket" << i + 1 << " : " << defTable[i].size() << endl;
-		}
-		return 0;
-	}
 };
+
 #endif

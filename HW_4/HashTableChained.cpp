@@ -11,17 +11,18 @@
 
 #include "HashTableChained.h"
 
- /**
+/**
   *  Construct a new empty hash table intended to hold roughly sizeEstimate
   *  entries.  (The precise number of buckets is up to you, but we recommend
   *  you use a prime number, and shoot for a load factor between 0.5 and 1.)
   **/
-template<typename K, typename V>
-HashTableChained<K, V>::HashTableChained(int sizeEstimate) {  //建置一個hashtable，load factor=0.75
+template <typename K, typename V>
+HashTableChained<K, V>::HashTableChained(int sizeEstimate)
+{
 	int n;
 	n = sizeEstimate / 0.75;
 	bucket = findprime(n);
-	defTable = new list<Entry<K, V>* >[bucket];
+	defTable = new list<Entry<K, V> *>[bucket];
 	entries = 0;
 }
 
@@ -29,9 +30,10 @@ HashTableChained<K, V>::HashTableChained(int sizeEstimate) {  //建置一個hashtabl
  *  Construct a new empty hash table with a default size.  Say, a prime in
  *  the neighborhood of 100.
  **/
-template<typename K, typename V>
-HashTableChained<K, V>::HashTableChained() {             //defualt constructor
-	defTable = new list<Entry<K, V>* >[101];
+template <typename K, typename V>
+HashTableChained<K, V>::HashTableChained()
+{ //default constructor
+	defTable = new list<Entry<K, V> *>[101];
 	entries = 0;
 }
 
@@ -42,11 +44,15 @@ HashTableChained<K, V>::HashTableChained() {             //defualt constructor
  *  This function should have package protection (so we can test it), and
  *  should be used by insert, find, and remove.
  **/
-template<typename K, typename V>
-int HashTableChained<K, V>::compFunction(int code) {            //將hashcode轉成integer 
+template <typename K, typename V>
+int HashTableChained<K, V>::compFunction(int code)
+{
 	int count;
+
 	int a = 23, b = 31, p = findprime(30 * bucket);
-	count = (((a*code + b) % p) % bucket);
+
+	count = (((a * code + b) % p) % bucket);
+
 	return count;
 }
 
@@ -56,10 +62,10 @@ int HashTableChained<K, V>::compFunction(int code) {            //將hashcode轉成
  *  a separate entry.
  *  @return number of entries in the dictionary.
  **/
-template<typename K, typename V>
-int HashTableChained<K, V>::size() {                     // hashcode的size 
+template <typename K, typename V>
+int HashTableChained<K, V>::size()
+{
 	return entries;
-
 }
 
 /**
@@ -67,8 +73,9 @@ int HashTableChained<K, V>::size() {                     // hashcode的size
  *
  *  @return true if the dictionary has no entries; false otherwise.
  **/
-template<typename K, typename V>
-bool HashTableChained<K, V>::isEmpty() {    //is hashtable empty or not
+template <typename K, typename V>
+bool HashTableChained<K, V>::isEmpty()
+{ //is hashtable empty or not
 	if (entries == 0)
 	{
 		return true;
@@ -90,8 +97,9 @@ bool HashTableChained<K, V>::isEmpty() {    //is hashtable empty or not
  *  @param key the key by which the entry can be retrieved.
  *  @param value an arbitrary object.
  **/
-template<typename K, typename V>
-void HashTableChained<K, V>::insert(const K& key, const V& value) {     //insert data到list
+template <typename K, typename V>
+void HashTableChained<K, V>::insert(const K &key, const V &value)
+{ //insert data list
 	int a = compFunction(key->hashCode());
 	defTable[a].push_front(new Entry<K, V>(key, value));
 	entries++;
@@ -107,10 +115,11 @@ void HashTableChained<K, V>::insert(const K& key, const V& value) {     //insert
  *  @return true if an entry containing the key is found, or false if
  *          no entry contains the specified key.
  **/
-template<typename K, typename V>
-bool HashTableChained<K, V>::find(const K& key) {       //找data在不在list中
-	list<Entry<K, V>* >* find = &defTable[compFunction(key->hashCode())];
-	typename list<Entry<K, V>* >::iterator iter;
+template <typename K, typename V>
+bool HashTableChained<K, V>::find(const K &key)
+{
+	list<Entry<K, V> *> *find = &defTable[compFunction(key->hashCode())];
+	typename list<Entry<K, V> *>::iterator iter;
 	for (iter = find->begin(); iter != find->end(); iter++)
 	{
 		if (key->equals(*(*iter)->getkey()))
@@ -131,13 +140,14 @@ bool HashTableChained<K, V>::find(const K& key) {       //找data在不在list中
  *
  *  @param key the search key.
  */
-template<typename K, typename V>
-void HashTableChained<K, V>::remove(const K&  key) {  //根據key移除指定的list
-	list<Entry<K, V>* >* find = &defTable[compFunction(key->hashCode())];
-	typename list<Entry<K, V>* >::iterator iter;
+template <typename K, typename V>
+void HashTableChained<K, V>::remove(const K &key)
+{
+	list<Entry<K, V> *> *find = &defTable[compFunction(key->hashCode())];
+	typename list<Entry<K, V> *>::iterator iter;
 	for (iter = find->begin(); iter != find->end(); iter++)
 	{
-		if (key->equals(*(*iter)->getkey()));
+		if (key->equals(*(*iter)->getkey()))
 		{
 			defTable[compFunction(key->hashCode())].erase(iter);
 		}
@@ -147,8 +157,9 @@ void HashTableChained<K, V>::remove(const K&  key) {  //根據key移除指定的list
 /**
  *  Remove all entries from the dictionary.
  */
-template<typename K, typename V>
-void HashTableChained<K, V>::makeEmpty() {   //清空
+template <typename K, typename V>
+void HashTableChained<K, V>::makeEmpty()
+{
 	for (int i = 0; i < bucket; i++)
 	{
 		defTable[i].clear();
@@ -156,16 +167,16 @@ void HashTableChained<K, V>::makeEmpty() {   //清空
 	entries = 0;
 }
 
-
-template<typename K, typename V>
-void HashTableChained<K, V>::print()       //印出hashtable
+template <typename K, typename V>
+void HashTableChained<K, V>::print()
 {
 	int i;
 	for (i = 0; i < bucket; i++)
 	{
-		list<Entry<K, V>* >* deft = &defTable[i];
-		cout << "[" << i << "]" << ":";
-		typename list<Entry<K, V>* >::iterator iter;
+		list<Entry<K, V> *> *deft = &defTable[i];
+		cout << "[" << i << "]"
+			 << ":";
+		typename list<Entry<K, V> *>::iterator iter;
 		for (iter = deft->begin(); iter != deft->end(); iter++)
 		{
 			cout << "( key : " << (*(*iter)->getkey()).getvalue();
@@ -173,4 +184,45 @@ void HashTableChained<K, V>::print()       //印出hashtable
 		}
 		cout << endl;
 	}
+}
+
+template <typename K, typename V>
+int HashTableChained<K, V>::collision()
+{
+	cout << endl
+		 << "entries in each bucket : " << endl
+		 << endl;
+	for (int i = 0; i < bucket; i++)
+	{
+		cout << "bucket" << i + 1 << " : " << defTable[i].size() << endl;
+	}
+	return 0;
+}
+
+template <typename K, typename V>
+int HashTableChained<K, V>::findprime(int n)
+{
+	while (true)
+	{
+		int a;
+		for (a = 2; a < n; a++)
+		{
+
+			if (n % a == 0)
+			{
+				break;
+			}
+		}
+
+		if (a == n)
+		{
+			break;
+		}
+		else
+		{
+			n++;
+		}
+	}
+
+	return n;
 }
